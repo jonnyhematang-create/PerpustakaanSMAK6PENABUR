@@ -1,45 +1,34 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muara Literasi - Beranda</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan SMAK 6 PENABUR</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
-<body class="animated-bg">
+    <header>
+        <h1>Perpustakaan SMAK 6 PENABUR</h1>
+        <p>Daftar Buku Digital FlipHTML5</p>
+    </header>
 
-<header>
-  <div class="logo">
-    <img src="logo-muara-literasi.svg" alt="Logo Perpustakaan">
-    <h1>Muara Literasi</h1>
-  </div>
+    <section class="form-section">
+        <h2>Tambah Buku FlipHTML5</h2>
 
-  <nav>
-    <a href="index.html" class="active">Beranda</a>
-    <a href="dewey.html">Klasifikasi Dewey</a>
-    <a href="koleksi.html">Koleksi</a>
-  </nav>
-</header>
+        <form id="bookForm">
+            <input type="text" id="judul" placeholder="Judul Buku" required />
+            <input type="text" id="pengarang" placeholder="Pengarang" required />
+            <input type="url" id="link" placeholder="Link FlipHTML5" required />
+            <button type="submit">Tambah Buku</button>
+        </form>
+    </section>
 
-<main class="home-container">
+    <section>
+        <h2>Daftar Buku</h2>
+        <div id="bookList" class="list-container"></div>
+    </section>
 
-  <section class="hero">
-    <h2>Selamat Datang di Perpustakaan Digital</h2>
-    <p>Perpustakaan Muara Literasi SMAK 6 PENABUR Jakarta.</p>
-
-    <div class="hero-buttons">
-      <a href="dewey.html" class="btn-primary">Lihat Klasifikasi Dewey</a>
-      <a href="koleksi.html" class="btn-secondary">Lihat Koleksi Buku</a>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <p>© 2026 Muara Literasi — SMAK 6 PENABUR</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
