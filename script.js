@@ -1,27 +1,75 @@
-document.getElementById("bookForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+// ------------------------------------------------------------------------------------
+// LOAD DATA
+// ------------------------------------------------------------------------------------
+let daftarBuku = JSON.parse(localStorage.getItem("daftarBuku")) || [];
 
-    const judul = document.getElementById("judul").value;
-    const pengarang = document.getElementById("pengarang").value;
-    const link = document.getElementById("link").value;
-
-    addBook(judul, pengarang, link);
-
-    // reset form
-    document.getElementById("bookForm").reset();
-});
-
-function addBook(judul, pengarang, link) {
-    const bookList = document.getElementById("bookList");
-
-    const card = document.createElement("div");
-    card.className = "book-card";
-
-    card.innerHTML = `
-        <h3>${judul}</h3>
-        <p><strong>Pengarang:</strong> ${pengarang}</p>
-        <a href="${link}" target="_blank">📖 Baca Buku</a>
-    `;
-
-    bookList.appendChild(card);
+function simpanData() {
+    localStorage.setItem("daftarBuku", JSON.stringify(daftarBuku));
 }
+
+// ------------------------------------------------------------------------------------
+// TAMBAH BUKU
+// ------------------------------------------------------------------------------------
+function tambahBuku() {
+    let judul = document.getElementById("judul").value;
+    let pengarang = document.getElementById("pengarang").value;
+    let kategori = document.getElementById("kategori").value;
+    let link = document.getElementById("link").value;
+
+    if (!judul || !pengarang || !kategori || !link) {
+        alert("Semua data wajib diisi!");
+        return;
+    }
+
+    let buku = {
+        judul: judul,
+        pengarang: pengarang,
+        kategori: kategori,
+        link: link
+    };
+
+    daftarBuku.push(buku);
+    simpanData();
+    tampilkanBuku();
+
+    document.getElementById("judul").value = "";
+    document.getElementById("pengarang").value = "";
+    document.getElementById("kategori").selectedIndex = 0;
+    document.getElementById("link").value = "";
+}
+
+// ------------------------------------------------------------------------------------
+// TAMPILKAN BUKU
+// ------------------------------------------------------------------------------------
+function tampilkanBuku(filter = "all") {
+    let area = document.getElementById("listBuku");
+    area.innerHTML = "";
+
+    daftarBuku.forEach((buku, index) => {
+
+        if (filter !== "all" && buku.kategori !== filter) return;
+
+        let div = document.createElement("div");
+        div.className = "buku-item";
+
+        div.innerHTML = `
+            <h3>${buku.judul}</h3>
+            <p><b>Pengarang:</b> ${buku.pengarang}</p>
+            <p><b>Kategori Dewey:</b> ${buku.kategori}</p>
+            <a href="${buku.link}" target="_blank">Buka Buku</a>
+        `;
+
+        area.appendChild(div);
+    });
+}
+
+// ------------------------------------------------------------------------------------
+// FILTER KATEGORI DEWEY
+// ------------------------------------------------------------------------------------
+function filterKategori(kode) {
+    tampilkanBuku(kode);
+}
+
+// ------------------------------------------------------------------------------------
+window.onload = () => tampilkanBuku();
+// ------------------------------------------------------------------------------------
