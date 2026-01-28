@@ -1,34 +1,29 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perpustakaan SMAK 6 PENABUR</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+<div class="form-container">
 
-    <header>
-        <h1>Perpustakaan SMAK 6 PENABUR</h1>
-        <p>Daftar Buku Digital FlipHTML5</p>
-    </header>
+    <h2>Tambah Buku FlipHTML5</h2>
 
-    <section class="form-section">
-        <h2>Tambah Buku FlipHTML5</h2>
+    <div class="form-row">
+        <input type="text" id="judul" placeholder="Judul Buku">
+        <input type="text" id="pengarang" placeholder="Pengarang">
+    </div>
 
-        <form id="bookForm">
-            <input type="text" id="judul" placeholder="Judul Buku" required />
-            <input type="text" id="pengarang" placeholder="Pengarang" required />
-            <input type="url" id="link" placeholder="Link FlipHTML5" required />
-            <button type="submit">Tambah Buku</button>
-        </form>
-    </section>
+    <div class="form-row">
+        <select id="kategori">
+            <option value="" disabled selected>Pilih Kategori Dewey</option>
+            <option value="000">000 – Karya Umum</option>
+            <option value="100">100 – Filsafat & Psikologi</option>
+            <option value="200">200 – Agama</option>
+            <option value="300">300 – Ilmu Sosial</option>
+            <option value="400">400 – Bahasa</option>
+            <option value="500">500 – Sains</option>
+            <option value="600">600 – Teknologi</option>
+            <option value="700">700 – Seni & Rekreasi</option>
+            <option value="800">800 – Sastra</option>
+            <option value="900">900 – Sejarah & Geografi</option>
+        </select>
 
-    <section>
-        <h2>Daftar Buku</h2>
-        <div id="bookList" class="list-container"></div>
-    </section>
+        <input type="text" id="link" placeholder="Link FlipHTML5">
+        <button onclick="tambahBuku()">Tambah Buku</button>
+    </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+</div>
