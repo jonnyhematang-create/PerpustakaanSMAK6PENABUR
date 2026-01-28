@@ -1,0 +1,8 @@
+<svg width="180" height="60" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="60" rx="12" fill="#2e86ff"/>
+  <text x="50%" y="50%" font-size="26" fill="white"
+        dominant-baseline="middle" text-anchor="middle"
+        font-family="Arial">
+    Muara Literasi
+  </text>
+</svg>
